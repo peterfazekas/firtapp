@@ -12,11 +12,7 @@ public class SimpleCondition implements SimpleStrategy<Boolean> {
 
 	@Override
 	public Boolean getResult(int denominator) {
-		int i = 0;
-		while (i < list.size() && list.get(i) % denominator != 0) {
-			i++;
-		}
-		return i < list.size();
+		return list.stream().anyMatch(i -> i % denominator == 0);
 	}
 
 }

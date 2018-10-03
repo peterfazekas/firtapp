@@ -12,11 +12,7 @@ public class SimpleSelect implements SimpleStrategy<Integer> {
 
 	@Override
 	public Integer getResult(int denominator) {
-		int i = 0;
-		while (list.get(i) % denominator != 0) {
-			i++;
-		}
-		return i;
+		return list.stream().filter(i -> i % denominator == 0).findAny().get();
 	}
 
 }

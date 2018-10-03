@@ -1,6 +1,7 @@
 package hu.firtsapp.model.service;
 
 import java.util.List;
+import java.util.Optional;
 
 public class SimpleFind implements SimpleStrategy<Integer> {
 
@@ -12,11 +13,8 @@ public class SimpleFind implements SimpleStrategy<Integer> {
 
 	@Override
 	public Integer getResult(int denominator) {
-		int i = 0;
-		while (i < list.size() && list.get(i) % denominator != 0) {
-			i++;
-		}
-		return i < list.size() ? i : -1;
+		Optional<Integer> find = list.stream().filter(i -> i % denominator == 0).findAny();
+		return find.isPresent() ? find.get() : -1;
 	}
 
 }

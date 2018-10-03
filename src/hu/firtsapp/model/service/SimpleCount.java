@@ -13,13 +13,7 @@ public class SimpleCount implements SimpleStrategy<Integer> {
 
 	@Override
 	public Integer getResult(int denominator) {
-		int db = 0;
-		for (Integer item : list) {
-			if (item % denominator == 0) {
-				db++;
-			}
-		}
-		return db;
+		return (int) list.stream().filter(i -> i % denominator == 0).count();
 	}
 
 }

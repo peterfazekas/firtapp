@@ -12,13 +12,7 @@ public class SimpleMax implements SimpleStrategy<Integer> {
 
 	@Override
 	public Integer getResult(int denominator) {
-		int max = 0;
-		for (int i = 1; i < list.size(); i++) {
-			if (list.get(i) > list.get(max)) {
-				max = i;
-			}
-		}
-		return max;
+		return list.stream().mapToInt(i -> i).max().getAsInt();
 	}
 
 }

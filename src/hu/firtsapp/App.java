@@ -26,7 +26,7 @@ public class App {
 		int denominator = 4;
 		if (facade.getCondition(denominator)) {
 			System.out.println("A sorozatban van " + denominator + "-al osztható szám");
-			System.out.println("A sorozat " + facade.getSelected(denominator) + ". eleme az!");
+			System.out.println("A sorozat " + facade.getSelected(denominator) + " értékű eleme osztható " + denominator + "-val");
 
 		} else {
 			System.out.println("A sorozatban nincs " + denominator + "-al osztható szám");
@@ -34,9 +34,11 @@ public class App {
 		denominator = 37;
 		System.out.println("A sorozat " + facade.getFound(denominator) + ". eleme osztható " + denominator + "-al.");
 		System.out.println("A sorozatban " + facade.getCount(denominator) + " db " + denominator + "-al osztható szám van!") ;
-		System.out.println("A sorozat " + facade.getMax() + ". eleme a legnagyobb, értéke " + list.get(facade.getMax() ));
+		System.out.println("A sorozat legnagyobb értékű eleme a(z) " + facade.getMax());
 		System.out.println(this);
-		System.out.println("Egyszerű kiválasztásos rendezéssel:");
+		System.out.println("Rendezve:");
+		list.sort(null);
+		System.out.println(this);
 	}
 
 	@Override

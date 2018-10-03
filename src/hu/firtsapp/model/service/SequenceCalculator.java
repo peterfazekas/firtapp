@@ -12,11 +12,7 @@ public class SequenceCalculator implements SimpleStrategy<Integer> {
 
 	@Override
 	public Integer getResult(int denominator) {
-		int sum = 0;
-		for (Integer item : list) {
-			sum += item;
-		}
-		return sum;
+		return list.stream().mapToInt(i -> i).sum();
 	}
 
 }
