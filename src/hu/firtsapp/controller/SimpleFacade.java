@@ -4,7 +4,9 @@ import java.util.List;
 
 import hu.firtsapp.model.service.SequenceCalculator;
 import hu.firtsapp.model.service.SimpleCondition;
+import hu.firtsapp.model.service.SimpleCount;
 import hu.firtsapp.model.service.SimpleFind;
+import hu.firtsapp.model.service.SimpleMax;
 import hu.firtsapp.model.service.SimpleSelect;
 import hu.firtsapp.model.service.SimpleStrategy;
 
@@ -35,4 +37,15 @@ public class SimpleFacade {
 		SimpleStrategy<Integer> strategy = new SimpleFind(list);
 		return strategy.getResult(denominator);
 	}
+
+	public int getCount(int denominator) {
+		SimpleStrategy<Integer> strategy = new SimpleCount(list);
+		return strategy.getResult(denominator);
+	}
+
+	public int getMax() {
+		SimpleStrategy<Integer> strategy = new SimpleMax(list);
+		return strategy.getResult(0);
+	}
+
 }
